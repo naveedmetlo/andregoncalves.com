@@ -1,0 +1,59 @@
+---
+layout: post
+title: "Inaugural: Twitter streaming with node.js and HTML5 WebSockets"
+---
+The idea of having a full javascript stack with code reuse and the removal of language impedance between client and server has always interested me.
+
+It seemed that a full javascript stack was an utopia, waiting in the distant future, but not anymore. Now there are a few powerful javascript solutions for the server and with CouchDB I can aim for a full javascript stack.
+
+One of those solutions is "node.js":http://nodejs.org. It's an high performance non-blocking event driven framework. It is brilliantly designed, it feels right, and the performance is impressive to say the least. I've not been so excited with a new technology since Rails appeared on my radar a few years ago.
+
+If you're unfamiliar with it, go watch Ryan Dahl "presentation":http://jsconf.eu/2009/video_nodejs_by_ryan_dahl.html at JSConf.
+
+
+h2. WebSockets and Twitter Real Time Streaming
+
+Yesterday I stumbled upon Ruben Fonseca excellent "blog post":http://blog.0x82.com/2009/12/28/twitter-amqp-websocket-example-no-polling on a Ruby Twitter Streaming example using AMQP, EventMachine and HTML5 WebSockets (basically it streams real time tweets to the browser without the use of polling).
+Ruben's experiment was inspired by Ilya Grigorik "post":http://www.igvita.com/2009/12/22/ruby-websockets-tcp-for-the-browser/ on WebSockets and Ruby.
+
+I decided to follow on Ruben's post and do the exact same thing with node.js, only IMO much simpler. Ruben's architecture was based on the following:
+
+<em>@Twitter Stream → Filter → RabbitMQ → AMQP → Eventmachine → WebSocket → Browser@</em>
+
+The node.js version:
+
+<em>@Twitter Stream → node.js → WebSocket → HTML5 Browser@</em>
+
+Let's look at the code:
+
+
+h2. The Server
+
+<script src="http://gist.github.com/265460.js?file=gistfile1.js"></script>
+
+Notice how everything looks familiar, and at first glance it seems we're writing typical client side javascript.
+I find it to be very elegant and simple solution, and with a lot less dependencies. The javascript style callbacks and closures are well suited for an evented non-blocking framework like node.js.
+
+I'm using Jacek Becela very cool minimal "web sockets library":http://github.com/ncr/node.ws.js that creates the websocket server with a similar interface to the native @tcp.createServer@.
+
+h2. The Client
+
+<script src="http://gist.github.com/264454.js?file=index.js"></script>
+
+Here for comparison sake (and because I'm lazy) I copied Ruben's client side script.
+
+You can check out the project and installation instructions on the "github repo":http://github.com/andregoncalves/twitter-nodejs-websocket.
+
+
+h2. How to run it yourself
+
+* Download and install node.js (instructions "here":http://nodejs.org/#download)
+* Download the project from "github":http://github.com/andregoncalves/twitter-nodejs-websocket.
+* Start the server: @node server.js <twitter_username> <twitter_password>@
+* Open @index.html@ with a WebSocket compatible browser (Chrome or Webkit nightly)
+
+==<br/>==
+
+---
+
+<small>Thanks to Lourens Naudé ("@methodmissing":http://blog.methodmissing.com) and Pedro Teixeira ("@pedrogteixeira":http://metaduck.com) for reading drafts of this.</small>

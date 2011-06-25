@@ -1,0 +1,10 @@
+<article class="excerpt post">
+  <header>
+    <time pubdate datetime="{{ post.date | date_to_xmlschema }}">
+      {{ post.date | date_to_string }}
+    </time>
+    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+  </header>
+  {{ post.content | truncatewords:80 }}
+  <p><a href="{{ post.url }}">Read more &rarr;</a></p>
+</article>

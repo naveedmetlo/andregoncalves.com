@@ -1,0 +1,9 @@
+---
+layout: application
+title: Home
+---
+<ul class="posts">
+{% for post in site.posts limit:15 %}
+  <li>{% include excerpt.html %}</li>
+{% endfor %}
+</ul>

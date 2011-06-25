@@ -1,0 +1,11 @@
+---
+layout: post
+title: WWDC 2011 Videos
+---
+
+If like me you were unable to attend this year Apple's WWDC, then there is hope for you.
+Less than two weeks after WWDC, Apple has uploaded the videos from the sessions, and they are now available on iTunes for registered developers.
+
+<a href="https://developer.apple.com/videos/wwdc/2011/">https://developer.apple.com/videos/wwdc/2011/</a>
+
+Topics include the new IOS 5 and upcoming iCloud and OS X Lion.
