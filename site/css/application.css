@@ -159,3 +159,12 @@ article.post em {
 article.post ul {
   margin-left: 1em;
 }
+div.social {
+  padding-left: 2em;
+  float: right;
+  margin-right: 30%;
+  opacity: 0.7;
+}
+div.social:hover {
+  opacity: 1;
+}
