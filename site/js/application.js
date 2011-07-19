@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   $("#sidebar a").bind('click', function() {
     var location = $(this).attr('name');
-    if (window._gaq) _gaq.push(['_trackEvent', 'Sidebar', 'Link', location]);
+    _gaq.push(['_trackEvent', 'Sidebar', 'Link', location]);
     return true;
   });
 
