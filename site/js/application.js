@@ -1,5 +1,6 @@
+var _gaq = _gaq || [];
+
 $(document).ready(function() {
-  var _gaq = _gaq || [];
   _gaq.push(['_setAccount', "UA-212686-7"]);
   _gaq.push(['_trackPageview']);
   _gaq.push(['_trackPageLoadTime']);
@@ -19,6 +20,4 @@ $(document).ready(function() {
       _gaq.push(['_trackSocial', 'twitter', 'tweet', targetUrl]);
     }
   });
-
-
 });

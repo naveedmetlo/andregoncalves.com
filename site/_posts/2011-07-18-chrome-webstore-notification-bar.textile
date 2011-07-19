@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Chrome Web Store Install Notification"
+---
+
+"Mappeo.net":http://mappeo.net, a geographic video search app, is one of my lab projects and I use it to try new techniques and technologies. Recently and to familiarize myself with the Google Chrome Web Store publishing process, I built a "packaged":http://code.google.com/chrome/extensions/apps.html version of mappeo and published on the "Web Store":https://chrome.google.com/webstore/detail/lnempicjilmahngopecohbcbldlijkib.
+
+Many Chrome Web Store apps are also available outside the store (like mappeo), and like me, you may want to notify visiting Chrome users that an optimized Chrome app is available.
+Inspired by "Jolicloud":http://www.jolicloud.com and Paul Kinlan's "badgemator":https://github.com/PaulKinlan/badgemator, I created a javascript library to display an animated notification like the one below.
+
+!http://mappeo.net/images/chrome-install-bar.png(Chrome Notification Bar)!
+
+The install button redirects the user to the Web Store "install page":https://chrome.google.com/webstore/detail/lnempicjilmahngopecohbcbldlijkib for your app.
+There's also a nice CSS3 animation, visit "mappeo.net":http://mappeo.net with Chrome to check it out.
+
+The <em><code>window.chrome.app</code></em> object is very handy to make sure we're not showing the notification if the app is already running. Also, to prevent the notification bar reappearing for returning visitors, a cookie is used to save state.
+
+<script src="https://gist.github.com/1090424.js"> </script>
+
+The library is small, has no dependencies and you can download it from the "github repository":https://github.com/andregoncalves/chrome-webstore-install-notification (MIT license).
+
+---
+
+<small><a href="http://twitter.com/andregoncalves">@andregoncalves</a></small>
