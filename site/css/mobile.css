@@ -1,0 +1,75 @@
+body {
+  font-family: Helvetica, "Helvetica neue", Arial, sans-serif;
+  line-height: 1.4em;
+  font-size: 10px;
+  font-weight: lighter;
+}
+
+a:hover {
+  background: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+  text-decoration: none;
+  border-bottom: 1px dashed #eee;
+}
+
+#show-sidebar {
+  display: inline;
+}
+
+#container {
+  width: 100%;
+}
+
+#sidebar {
+  float: none;
+  display: none;
+}
+
+#content {
+  width: 100%;
+}
+
+div.social {
+  display: none;
+  padding-left: 0em;
+  float: right;
+  opacity: 0.7;
+
+}
+
+#sidebar {
+  width: 90%;
+  margin: auto;
+}
+#sidebar div.block {
+  width: 30%;
+  float:left;
+}
+#sidebar div.block:nth-child(2) {
+  float: left;
+  width: 30%;
+  position: relative;
+  left: 10px;
+}
+#sidebar div.block:last-child {
+  float: right;
+  width: 30%;
+}
+
+
+#sidebar h2 {
+  margin: 0;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+}
+#sidebar p {
+  margin: 0;
+  width: 100%;
+}
+#sidebar li {
+  margin: 0;
+}

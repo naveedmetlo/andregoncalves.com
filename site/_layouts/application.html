@@ -14,6 +14,7 @@
   <meta name="google-site-verification" content="1x2-ABPbUFTsZlaU0vmZcnRFDFTd7Jrms1gxE1FnBds" />
   <meta name="msvalidate.01" content="F015F625E054AD62B5971B5AD96925A4" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="http://feeds.feedburner.com/andregoncalves" rel="alternate" title="Primary Feed" type="application/rss+xml" />
   <link rel="shortcut icon" href="/img/favicon.ico">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -22,7 +23,9 @@
   <!-- INI:CSS -->
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" media="screen and (max-device-width: 480px)" href="/css/mobile.css" />
   <!-- END:CSS -->
+
 </head>
 <body>
   <div id="container">
@@ -30,28 +33,35 @@
     <header>
       <h1 class="title">ANDRÉ GONÇALVES</h1>
       <p>Web developer and founder @ questionform.com</p>
+      <div><a id="show-sidebar" href="#">About &darr;</a></div>
     </header>
 
+
     <div id="main" role="main">
-      <aside id="sidebar">
-        <h2 class="first">WORK</h2>
-        <p>
-          I may be available to work on your projects, <a href="mailto:andre@questionform.com">email</a> or <a href="callto:andre.c.goncalves">call me</a> to discuss.
-        </p>
-        <h2>PROJECTS</h2>
-        <ul>
-          <li><a title="Survey and form creator" name="questionform.com" href="http://questionform.com/?utm_source=home&utm_medium=link&utm_campaign=home">questionform.com</a></li>
-          <li><a title="Geographic video search mashup" name="mappeo.net" href="http://www.mappeo.net/?utm_source=home&utm_medium=link&utm_campaign=home">mappeo.net</a></li>
-        </ul>
-        <h2>FIND ME</h2>
-        <ul>
-          <li><a title="RSS Feed" name="rss" href="/atom.xml"><img src="/img/rss.png" style="width:18px" />Feed</a></li>
-          <li><a name="twitter" href="http://twitter.com/andregoncalves"><img src="/img/twitter.png" style="width:18px"/>Twitter</a></li>
-          <li><a name="github" href="https://github.com/andregoncalves"><img src="/img/github.png" style="width:18px"/>Github</a></li>
-          <li><a name="delicious" href="http://delicious.com/andregoncalves"><img src="/img/delicious.png" style="width:18px"/>Delicious</a></li>
-          <li><a name="google" href="https://profiles.google.com/andre.c.goncalves"><img src="/img/google.png" style="width:18px"/>Google+</a></li>
-          <!--<li><a href="https://profiles.google.com/andre.c.goncalves"><img src="/img/codecanyon.png" style="width:18px"/>Code Canyon</a></li>-->
-        </ul>
+      <aside id="sidebar" class="clearfix">
+        <div class="block">
+          <h2 class="first">WORK</h2>
+          <p>
+            I may be available to work on your projects, <a href="mailto:andre@questionform.com">email</a> or <a href="callto:andre.c.goncalves">call me</a> to discuss.
+          </p>
+        </div>
+        <div class="block">
+          <h2>PROJECTS</h2>
+          <ul>
+            <li><a title="Survey and form creator" name="questionform.com" href="http://questionform.com/?utm_source=home&utm_medium=link&utm_campaign=home">questionform.com</a></li>
+            <li><a title="Geographic video search mashup" name="mappeo.net" href="http://www.mappeo.net/?utm_source=home&utm_medium=link&utm_campaign=home">mappeo.net</a></li>
+          </ul>
+        </div>
+        <div class="block">
+          <h2>FIND ME</h2>
+          <ul>
+            <li><a title="RSS Feed" name="rss" href="/atom.xml"><img src="/img/rss.png" style="width:18px" />Feed</a></li>
+            <li><a name="twitter" href="http://twitter.com/andregoncalves"><img src="/img/twitter.png" style="width:18px"/>Twitter</a></li>
+            <li><a name="github" href="https://github.com/andregoncalves"><img src="/img/github.png" style="width:18px"/>Github</a></li>
+            <li><a name="delicious" href="http://delicious.com/andregoncalves"><img src="/img/delicious.png" style="width:18px"/>Delicious</a></li>
+            <li><a name="google" href="https://profiles.google.com/andre.c.goncalves"><img src="/img/google.png" style="width:18px"/>Google+</a></li>
+          </ul>
+        </div>
       </aside>
       <section id="content">
         {{ content }}

@@ -20,4 +20,11 @@ $(document).ready(function() {
       _gaq.push(['_trackSocial', 'twitter', 'tweet', targetUrl]);
     }
   });
+
+  $("#show-sidebar").bind('click', function() {
+    $("#sidebar").toggle();
+    var arrow = $("#sidebar").is(':visible') ? "&uarr;" : "&darr;";
+    $(this).html("About " + arrow);
+    return false;
+  });
 });
