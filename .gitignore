@@ -2,3 +2,4 @@
 Thumbs.db
 publish/*
 site/_site/*
+Gemfile.lock
