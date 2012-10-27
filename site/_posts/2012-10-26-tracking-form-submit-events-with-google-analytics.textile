@@ -1,0 +1,23 @@
+---
+layout: post
+title: Tracking form submit events with Google Analytics.
+---
+
+<a href="http://questionform.com">Questionform.com</a> payment pages are hosted in Paypal and Fastspring, and I've been using Google Analytics events to track outbound links to both payment providers. The purpose was to get an idea of the drop-out rate for each provider.
+
+After a few weeks, I noticed the data coming in didn't seem correct, Google Analytics was missing a huge percentage of submit actions. It turns out, my tracking code was incorrect:
+
+<script src="https://gist.github.com/3960379.js"> </script>
+
+There is not enough time for analytics to send the data to the backend server, the browser will (sometimes) navigate away from the page before the event is registered.
+
+The solution is actually very simple, just add a fraction of a second delay (100ms) before submitting the form:
+
+<script src="https://gist.github.com/3964111.js"> </script>
+
+From my experience this mostly solves the problem (does not guarantee 100% fidelity), and the delay is too small to be annoying to the user.
+
+---
+
+Follow me <a href="http://twitter.com/andregoncalves">@andregoncalves</a> / <a href="http://andregoncalves.com/+">google+</a>
+<a href="http://questionform.com">questionform.com</a>, beautiful and powerful web forms and surveys.
