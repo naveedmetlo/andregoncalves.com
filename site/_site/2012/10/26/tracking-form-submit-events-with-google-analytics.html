@@ -1,0 +1,136 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Tracking form submit events with Google Analytics.</title>
+  <meta name="description" content="Personal page">
+  <meta name="author" content="Andre Goncalves Home">
+
+  <meta name="google-site-verification" content="1x2-ABPbUFTsZlaU0vmZcnRFDFTd7Jrms1gxE1FnBds" />
+  <meta name="msvalidate.01" content="F015F625E054AD62B5971B5AD96925A4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="http://feeds.feedburner.com/andregoncalves" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+  <script src="/js/lib/modernizr-2.0.min.js"></script>
+  <!-- INI:CSS -->
+  <link href="http://fonts.googleapis.com/css?family=Oswald:400,700,300|Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" media="screen and (max-device-width: 480px)" href="/css/mobile.css">
+  <!-- END:CSS -->
+
+</head>
+<body>
+  <div id="container">
+
+    <header>
+      <h1 class="title">ANDRÉ GONÇALVES</h1>
+      <p>Web developer and founder @ questionform.com</p>
+      <div><a id="show-sidebar" href="#">About &darr;</a></div>
+    </header>
+
+
+    <div id="main" role="main">
+      <aside id="sidebar" class="clearfix">
+        <div class="block">
+          <h2 class="first">WORK</h2>
+          <p>
+            I may be available to work on your projects, <a href="mailto:andre@questionform.com">email</a> or <a href="callto:andre.c.goncalves">call me</a> to discuss.
+          </p>
+        </div>
+        <div class="block">
+          <h2>PROJECTS</h2>
+          <ul>
+            <li><a title="Survey and form creator" name="questionform.com" href="http://questionform.com/?utm_source=home&utm_medium=link&utm_campaign=home">questionform.com</a></li>
+            <li><a title="Geographic video search mashup" name="mappeo.net" href="http://www.mappeo.net/?utm_source=home&utm_medium=link&utm_campaign=home">mappeo.net</a></li>
+            <li><a title="Geographic Youtube video search script" name="geovideo" href="/projects/geovideo.html">geo-video script</a></li>
+            <li><a title="Geographic photo search script" name="geophoto" href="/projects/geophoto.html">geo-photo script</a></li>
+          </ul>
+        </div>
+        <div class="block">
+          <h2>FIND ME</h2>
+          <ul>
+            <li><a title="RSS Feed" name="rss" href="/atom.xml"><img src="/img/rss.png" style="width:18px" />Feed</a></li>
+            <li><a name="twitter" href="http://twitter.com/andregoncalves"><img src="/img/twitter.png" style="width:18px"/>Twitter</a></li>
+            <li><a name="google" href="http://andregoncalves.com/+"><img src="/img/google.png" style="width:18px"/>Google+</a></li>
+            <li><a name="github" href="https://github.com/andregoncalves"><img src="/img/github.png" style="width:18px"/>Github</a></li>
+            <li><a name="delicious" href="http://delicious.com/andregoncalves"><img src="/img/delicious.png" style="width:18px"/>Delicious</a></li>
+            <li><a name="codecanyon" href="http://codecanyon.net/user/andregoncalves/profile?ref=andregoncalves"><img src="/img/codecanyon.png" style="width:18px"/>Code Canyon</a></li>
+          </ul>
+        </div>
+      </aside>
+      <section id="content">
+        <article class="post">
+  <header>
+    <a href="/">&larr; Home</a> ::
+    <time pubdate datetime="2012-10-26T00:00:00+01:00">
+      26 Oct 2012
+    </time>
+    <h1>Tracking form submit events with Google Analytics.</h1>
+  </header>
+  <div>
+    <p><a href="http://questionform.com">Questionform.com</a> payment pages are hosted in Paypal and Fastspring, and I&#8217;ve been using Google Analytics events to track outbound links to both payment providers. The purpose was to get an idea of the drop-out rate for each provider.</p>
+<p>After a few weeks, I noticed the data coming in didn&#8217;t seem correct, Google Analytics was missing a huge percentage of submit actions. It turns out, my tracking code was incorrect:</p>
+<script src="https://gist.github.com/3960379.js"> </script><p>There is not enough time for analytics to send the data to the backend server, the browser will (sometimes) navigate away from the page before the event is registered.</p>
+<p>The solution is actually very simple, just add a fraction of a second delay (100ms) before submitting the form:</p>
+<script src="https://gist.github.com/3964111.js"> </script><p>From my experience this mostly solves the problem (does not guarantee 100% fidelity), and the delay is too small to be annoying to the user.</p>
+<hr />
+<p>Follow me <a href="http://twitter.com/andregoncalves">@andregoncalves</a> / <a href="http://andregoncalves.com/+">google+</a><br />
+<a href="http://questionform.com">questionform.com</a>, beautiful and powerful web forms and surveys.</p>
+  </div>
+  <footer style="display: none">
+  </footer>
+</article>
+
+      </section>
+
+    </div>
+    <footer>
+      <div class="social">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a>
+        <g:plusone size="medium"></g:plusone>
+      </div>
+
+      © Andre Gonçalves. All Rights Reserved.
+    </footer>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/lib/jquery-1.6.2.min.js"%3E%3C/script%3E'))</script>
+  <script src="/js/application.js"></script>
+
+  <!-- ANALYTICS -->
+  <script>
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+  </script>
+  <!-- END:ANALYTICS -->
+
+  <!--[if lt IE 8 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+  <![endif]-->
+  <!--[if lt IE 7 ]>
+    <script src="/js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg");</script>
+  <![endif]-->
+
+  <script type="text/javascript">
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+  <script defer="defer" src="http://platform.twitter.com/widgets.js"></script>
+</body>
+</html>

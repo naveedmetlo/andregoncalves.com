@@ -1,0 +1,157 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Inaugural: Twitter streaming with node.js and HTML5 WebSockets</title>
+  <meta name="description" content="Personal page">
+  <meta name="author" content="Andre Goncalves Home">
+
+  <meta name="google-site-verification" content="1x2-ABPbUFTsZlaU0vmZcnRFDFTd7Jrms1gxE1FnBds" />
+  <meta name="msvalidate.01" content="F015F625E054AD62B5971B5AD96925A4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="http://feeds.feedburner.com/andregoncalves" rel="alternate" title="Primary Feed" type="application/rss+xml" />
+  <link rel="shortcut icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+  <script src="/js/lib/modernizr-2.0.min.js"></script>
+  <!-- INI:CSS -->
+  <link href="http://fonts.googleapis.com/css?family=Oswald:400,700,300|Open+Sans:400,600,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" media="screen and (max-device-width: 480px)" href="/css/mobile.css">
+  <!-- END:CSS -->
+
+</head>
+<body>
+  <div id="container">
+
+    <header>
+      <h1 class="title">ANDRÉ GONÇALVES</h1>
+      <p>Web developer and founder @ questionform.com</p>
+      <div><a id="show-sidebar" href="#">About &darr;</a></div>
+    </header>
+
+
+    <div id="main" role="main">
+      <aside id="sidebar" class="clearfix">
+        <div class="block">
+          <h2 class="first">WORK</h2>
+          <p>
+            I may be available to work on your projects, <a href="mailto:andre@questionform.com">email</a> or <a href="callto:andre.c.goncalves">call me</a> to discuss.
+          </p>
+        </div>
+        <div class="block">
+          <h2>PROJECTS</h2>
+          <ul>
+            <li><a title="Survey and form creator" name="questionform.com" href="http://questionform.com/?utm_source=home&utm_medium=link&utm_campaign=home">questionform.com</a></li>
+            <li><a title="Geographic video search mashup" name="mappeo.net" href="http://www.mappeo.net/?utm_source=home&utm_medium=link&utm_campaign=home">mappeo.net</a></li>
+            <li><a title="Geographic Youtube video search script" name="geovideo" href="/projects/geovideo.html">geo-video script</a></li>
+            <li><a title="Geographic photo search script" name="geophoto" href="/projects/geophoto.html">geo-photo script</a></li>
+          </ul>
+        </div>
+        <div class="block">
+          <h2>FIND ME</h2>
+          <ul>
+            <li><a title="RSS Feed" name="rss" href="/atom.xml"><img src="/img/rss.png" style="width:18px" />Feed</a></li>
+            <li><a name="twitter" href="http://twitter.com/andregoncalves"><img src="/img/twitter.png" style="width:18px"/>Twitter</a></li>
+            <li><a name="google" href="http://andregoncalves.com/+"><img src="/img/google.png" style="width:18px"/>Google+</a></li>
+            <li><a name="github" href="https://github.com/andregoncalves"><img src="/img/github.png" style="width:18px"/>Github</a></li>
+            <li><a name="delicious" href="http://delicious.com/andregoncalves"><img src="/img/delicious.png" style="width:18px"/>Delicious</a></li>
+            <li><a name="codecanyon" href="http://codecanyon.net/user/andregoncalves/profile?ref=andregoncalves"><img src="/img/codecanyon.png" style="width:18px"/>Code Canyon</a></li>
+          </ul>
+        </div>
+      </aside>
+      <section id="content">
+        <article class="post">
+  <header>
+    <a href="/">&larr; Home</a> ::
+    <time pubdate datetime="2009-12-29T00:00:00+00:00">
+      29 Dec 2009
+    </time>
+    <h1>Inaugural: Twitter streaming with node.js and HTML5 WebSockets</h1>
+  </header>
+  <div>
+    <p>The idea of having a full javascript stack with code reuse and the removal of language impedance between client and server has always interested me.</p>
+<p>It seemed that a full javascript stack was an utopia, waiting in the distant future, but not anymore. Now there are a few powerful javascript solutions for the server and with CouchDB I can aim for a full javascript stack.</p>
+<p>One of those solutions is <a href="http://nodejs.org">node.js</a>. It&#8217;s an high performance non-blocking event driven framework. It is brilliantly designed, it feels right, and the performance is impressive to say the least. I&#8217;ve not been so excited with a new technology since Rails appeared on my radar a few years ago.</p>
+<p>If you&#8217;re unfamiliar with it, go watch Ryan Dahl <a href="http://jsconf.eu/2009/video_nodejs_by_ryan_dahl.html">presentation</a> at JSConf.</p>
+<h2>WebSockets and Twitter Real Time Streaming</h2>
+<p>Yesterday I stumbled upon Ruben Fonseca excellent <a href="http://blog.0x82.com/2009/12/28/twitter-amqp-websocket-example-no-polling">blog post</a> on a Ruby Twitter Streaming example using <span class="caps">AMQP</span>, EventMachine and HTML5 WebSockets (basically it streams real time tweets to the browser without the use of polling).<br />
+Ruben&#8217;s experiment was inspired by Ilya Grigorik <a href="http://www.igvita.com/2009/12/22/ruby-websockets-tcp-for-the-browser/">post</a> on WebSockets and Ruby.</p>
+<p>I decided to follow on Ruben&#8217;s post and do the exact same thing with node.js, only <span class="caps">IMO</span> much simpler. Ruben&#8217;s architecture was based on the following:</p>
+<p><em><code>Twitter Stream → Filter → RabbitMQ → AMQP → Eventmachine → WebSocket → Browser</code></em></p>
+<p>The node.js version:</p>
+<p><em><code>Twitter Stream → node.js → WebSocket → HTML5 Browser</code></em></p>
+<p>Let&#8217;s look at the code:</p>
+<h2>The Server</h2>
+<script src="http://gist.github.com/265460.js?file=gistfile1.js"></script><p>Notice how everything looks familiar, and at first glance it seems we&#8217;re writing typical client side javascript.<br />
+I find it to be very elegant and simple solution, and with a lot less dependencies. The javascript style callbacks and closures are well suited for an evented non-blocking framework like node.js.</p>
+<p>I&#8217;m using Jacek Becela very cool minimal <a href="http://github.com/ncr/node.ws.js">web sockets library</a> that creates the websocket server with a similar interface to the native <code>tcp.createServer</code>.</p>
+<h2>The Client</h2>
+<script src="http://gist.github.com/264454.js?file=index.js"></script><p>Here for comparison sake (and because I&#8217;m lazy) I copied Ruben&#8217;s client side script.</p>
+<p>You can check out the project and installation instructions on the <a href="http://github.com/andregoncalves/twitter-nodejs-websocket">github repo</a>.</p>
+<h2>How to run it yourself</h2>
+<ul>
+	<li>Download and install node.js (instructions <a href="http://nodejs.org/#download">here</a>)</li>
+	<li>Download the project from <a href="http://github.com/andregoncalves/twitter-nodejs-websocket">github</a>.</li>
+	<li>Start the server: <code>node server.js &lt;twitter_username&gt; &lt;twitter_password&gt;</code></li>
+	<li>Open <code>index.html</code> with a WebSocket compatible browser (Chrome or Webkit nightly)</li>
+</ul>
+<p><br/></p>
+<hr />
+<p><small>Thanks to Lourens Naudé (<a href="http://blog.methodmissing.com">@methodmissing</a>) and Pedro Teixeira (<a href="http://metaduck.com">@pedrogteixeira</a>) for reading drafts of this.</small></p>
+  </div>
+  <footer style="display: none">
+  </footer>
+</article>
+
+      </section>
+
+    </div>
+    <footer>
+      <div class="social">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a>
+        <g:plusone size="medium"></g:plusone>
+      </div>
+
+      © Andre Gonçalves. All Rights Reserved.
+    </footer>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/lib/jquery-1.6.2.min.js"%3E%3C/script%3E'))</script>
+  <script src="/js/application.js"></script>
+
+  <!-- ANALYTICS -->
+  <script>
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+  </script>
+  <!-- END:ANALYTICS -->
+
+  <!--[if lt IE 8 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+  <![endif]-->
+  <!--[if lt IE 7 ]>
+    <script src="/js/libs/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix("img, .png_bg");</script>
+  <![endif]-->
+
+  <script type="text/javascript">
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+  <script defer="defer" src="http://platform.twitter.com/widgets.js"></script>
+</body>
+</html>

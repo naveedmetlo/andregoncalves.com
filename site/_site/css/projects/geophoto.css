@@ -1,0 +1,108 @@
+div.geoPhoto {
+  font-family: sans-serif;
+}
+div.geoPhoto-container {
+  height: 100%;
+}
+div.geoPhoto.photo > div {
+}
+div.geoPhoto-map {
+  height: 100%;
+}
+
+div.geoPhoto-photo {
+  width: 450px;
+  /*height: 500px;*/
+  margin-top: 40px;
+  position: absolute;
+  z-index: 1;
+  background: #fff;
+
+  -webkit-box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  -moz-box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  -o-box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  -ms-box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+.geoPhoto-photo-block {
+  max-width: 650px;
+  margin: 1em auto;
+  color: #444;
+}
+.geoPhoto-photo-block h3 {
+  font-size: 11px;
+  font-weight: normal;
+  text-align: center;
+}
+.geoPhoto-photo-block p {
+  font-size: 11px;
+}
+.geoPhoto-photo-block a {
+  font-size: 11px;
+  text-decoration: none;
+  padding: 2px 5px;
+  background: #aaa;
+  color: #FFF;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+
+  margin-left: 2px;
+}
+.geoPhoto-photo-block a:hover {
+  background: #678AC7;
+  color: #FFF;
+}
+.geoPhoto-photo-block-header {
+  margin: 0 5px;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
+.geoPhoto-photo-block .geoPhoto-view {
+  position: relative;
+  overflow: hidden;
+}
+.geoPhoto-view:hover img {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.geoPhoto-photo-block img {
+  display: block;
+  padding: 2em 0;
+  padding-bottom: 1em;
+  margin: auto;
+  position: relative;
+
+}
+.geoPhoto-photo-block p {
+  text-align: center;
+}
+
+div#geoPhoto-loading-window {
+  width: 80%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  margin-top: 50px;
+  position: absolute;
+  left: 10%;
+  z-index: 1;
+  background: #000;
+  opacity: 0.6;
+  color: #FFF;
+
+  -webkit-box-shadow: 0 1px 8px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  -o-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  -ms-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  box-shadow: 0 1px 8px rgba(0,0,0,.2);
+}
+#geoPhoto-loading-window h2 {
+  margin: 0;
+}
