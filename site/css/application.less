@@ -14,15 +14,14 @@ h2 {
 }
 a {
   text-decoration: none;
-  color: #0059a6;
+  color: darken(#0074D9, 10%);
 }
-a:visited {
-  color: #004b8d;
-}
+a:visited { color: darken(#0074D9, 15%); }
 a:hover {
   border-bottom: 1px dotted #001F3F;
   border-top: 1px dotted #001F3F;
 }
+
 #container {
   width: 90%;
   margin: auto;
@@ -50,9 +49,7 @@ header p {
   -o-border-radius: 10px;
   -ms-border-radius: 10px;
   border-radius: 10px;
-}
-header p a {
-  font-weight: bold;
+  a { font-weight: bold; }
 }
 #show-sidebar {
   display: none;
@@ -101,6 +98,7 @@ header p a {
 #content {
   width: 70%;
   border-right: 1px solid #eee;
+
 }
 ul.posts {
   list-style: none;
