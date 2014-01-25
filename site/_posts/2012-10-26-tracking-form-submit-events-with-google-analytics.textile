@@ -3,6 +3,8 @@ layout: post
 title: Tracking form submit events with Google Analytics.
 ---
 
+<p style="background: lightyellow">This post is outdated, please see <a href="2014/01/25/tracking-form-submit-events-with-google-analytics-updated.html">new version</a>.</p>
+
 <a href="http://questionform.com">Questionform.com</a> payment pages are hosted in Paypal and Fastspring, and I've been using Google Analytics events to track outbound links to both payment providers. The purpose was to get an idea of the drop-out rate for each provider.
 
 After a few weeks, I noticed the data coming in didn't seem correct, Google Analytics was missing a huge percentage of submit actions. It turns out, my tracking code was incorrect:

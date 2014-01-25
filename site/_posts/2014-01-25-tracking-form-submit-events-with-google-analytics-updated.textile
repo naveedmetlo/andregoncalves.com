@@ -1,0 +1,24 @@
+---
+layout: post
+title: Tracking form submit events with Google Universal Analytics. (Updated)
+---
+
+<a href="http://questionform.com">Questionform.com</a> payment pages are hosted in Paypal and Fastspring, and I've been using Google Analytics events to track outbound links to both payment providers. The purpose was to get an idea of the drop-out rates for each provider.
+
+After a few weeks, I noticed the data coming in didn't seem correct, Google Analytics was missing a huge percentage of submit actions. It turns out, my tracking code was incorrect:
+
+<script src="https://gist.github.com/3960379.js"> </script>
+
+There is not enough time for analytics to send the data to the backend server, the browser will navigate away from the page before the event is registered.
+
+To fix this, you will first need to upgrade to <a href="https://developers.google.com/analytics/devguides/collection/upgrade/">Universal Analytics</a>, the new and improved version of Google analytics.
+
+One of the new features of Universal Analytics is the ability to have a callback method executed after you’ve sent some data. This is perfectly suited to when you need to track an outbound link as an event, hitCallback is your friend:
+
+<script src="https://gist.github.com/8615960.js"> </script>
+
+
+---
+
+Follow me <a href="http://twitter.com/andregoncalves">@andregoncalves</a> / <a href="http://andregoncalves.com/+">google+</a>
+<a href="http://questionform.com">questionform.com</a>, beautiful and powerful web forms and surveys.
