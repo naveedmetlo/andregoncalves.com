@@ -1,14 +1,16 @@
-var _gaq = _gaq || [];
 
 $(document).ready(function() {
-  _gaq.push(['_setAccount', "UA-212686-7"]);
-  _gaq.push(['_trackPageview']);
-  _gaq.push(['_trackPageLoadTime']);
+  ga('create', 'UA-212686-7', 'andregoncalves.com');
+  ga('send', 'pageview');
 
   $("#sidebar a").bind('click', function() {
-    var location = $(this).attr('name');
-    _gaq.push(['_trackEvent', 'Sidebar', 'Link', location]);
-    return true;
+    var location_name = $(this).attr('name');
+    var location = $(this).attr('href');
+
+    ga('send', { 'hitType': 'event', 'eventCategory': 'sidebar', 'eventAction': 'link', 'eventLabel': location_name, 'hitCallback': function() {
+      document.location = location;
+    }});
+    return false;
   });
 
   twttr.events.bind('tweet', function(event) {
@@ -17,7 +19,7 @@ $(document).ready(function() {
       if (event.target && event.target.nodeName == 'IFRAME') {
         targetUrl = extractParamFromUri(event.target.src, 'url');
       }
-      _gaq.push(['_trackSocial', 'twitter', 'tweet', targetUrl]);
+      ga('send', 'social', 'twitter', 'tweet', targetUrl);
     }
   });
 

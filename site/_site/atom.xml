@@ -3,7 +3,7 @@
  <title>Andre Goncalves</title>
  <link href="http://andregoncalves.com/atom.xml" rel="self"/>
  <link href="http://andregoncalves.com/"/>
- <updated>2013-04-13T17:25:36+01:00</updated>
+ <updated>2014-02-14T16:44:35+00:00</updated>
  <id>http://andregoncalves.com/</id>
  <author>
    <name>Andre Goncalves</name>
@@ -11,11 +11,31 @@
  </author>
  
  <entry>
+   <title>Tracking form submit events with Google Universal Analytics. (Updated)</title>
+   <link href="http://andregoncalves.com/2014/01/25/tracking-form-submit-events-with-google-analytics-updated.html"/>
+   <updated>2014-01-25T00:00:00+00:00</updated>
+   <id>http://andregoncalves.com/2014/01/25/tracking-form-submit-events-with-google-analytics-updated</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://questionform.com&quot;&gt;Questionform.com&lt;/a&gt; payment pages are hosted in Paypal and Fastspring, and I&amp;#8217;ve been using Google Analytics events to track outbound links to both payment providers. The purpose was to get an idea of the drop-out rates for each provider.&lt;/p&gt;
+&lt;p&gt;After a few weeks, I noticed the data coming in didn&amp;#8217;t seem correct, Google Analytics was missing a huge percentage of submit actions. It turns out, my tracking code was incorrect:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/3960379.js&quot;&gt; &lt;/script&gt;&lt;p&gt;There is not enough time for analytics to send the data to the backend server, the browser will navigate away from the page before the event is registered.&lt;/p&gt;
+&lt;p&gt;To fix this, you will first need to upgrade to &lt;a href=&quot;https://developers.google.com/analytics/devguides/collection/upgrade/&quot;&gt;Universal Analytics&lt;/a&gt;, the new and improved version of Google analytics.&lt;/p&gt;
+&lt;p&gt;One of the new features of Universal Analytics is the ability to have a callback method executed after you’ve sent some data. This is perfectly suited to when you need to track an outbound link as an event, hitCallback is your friend:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/8615960.js&quot;&gt; &lt;/script&gt;&lt;hr /&gt;
+&lt;p&gt;Follow me &lt;a href=&quot;http://twitter.com/andregoncalves&quot;&gt;@andregoncalves&lt;/a&gt; / &lt;a href=&quot;http://andregoncalves.com/+&quot;&gt;google+&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://questionform.com&quot;&gt;questionform.com&lt;/a&gt;, beautiful and powerful web forms and surveys.&lt;/p&gt;</content>
+   <author>
+     <name>Andre Goncalves</name>
+     <uri>http://andregoncalves.com</uri>
+   </author>
+ </entry>
+ 
+ <entry>
    <title>Tracking form submit events with Google Analytics.</title>
    <link href="http://andregoncalves.com/2012/10/26/tracking-form-submit-events-with-google-analytics.html"/>
    <updated>2012-10-26T00:00:00+01:00</updated>
    <id>http://andregoncalves.com/2012/10/26/tracking-form-submit-events-with-google-analytics</id>
-   <content type="html">&lt;p&gt;&lt;a href=&quot;http://questionform.com&quot;&gt;Questionform.com&lt;/a&gt; payment pages are hosted in Paypal and Fastspring, and I&amp;#8217;ve been using Google Analytics events to track outbound links to both payment providers. The purpose was to get an idea of the drop-out rate for each provider.&lt;/p&gt;
+   <content type="html">&lt;p style=&quot;background: lightyellow&quot;&gt;This post is outdated, please see &lt;a href=&quot;2014/01/25/tracking-form-submit-events-with-google-analytics-updated.html&quot;&gt;new version&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://questionform.com&quot;&gt;Questionform.com&lt;/a&gt; payment pages are hosted in Paypal and Fastspring, and I&amp;#8217;ve been using Google Analytics events to track outbound links to both payment providers. The purpose was to get an idea of the drop-out rate for each provider.&lt;/p&gt;
 &lt;p&gt;After a few weeks, I noticed the data coming in didn&amp;#8217;t seem correct, Google Analytics was missing a huge percentage of submit actions. It turns out, my tracking code was incorrect:&lt;/p&gt;
 &lt;script src=&quot;https://gist.github.com/3960379.js&quot;&gt; &lt;/script&gt;&lt;p&gt;There is not enough time for analytics to send the data to the backend server, the browser will (sometimes) navigate away from the page before the event is registered.&lt;/p&gt;
 &lt;p&gt;The solution is actually very simple, just add a fraction of a second delay (100ms) before submitting the form:&lt;/p&gt;

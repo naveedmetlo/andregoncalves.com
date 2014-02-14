@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>WWDC 2011 Videos</title>
+  <title>Tracking form submit events with Google Universal Analytics. (Updated)</title>
   <meta name="description" content="Personal page">
   <meta name="author" content="Andre Goncalves Home">
 
@@ -73,16 +73,20 @@
         <article class="post">
   <header>
     <a href="/">&larr; Home</a> ::
-    <time pubdate datetime="2011-06-24T00:00:00+01:00">
-      24 Jun 2011
+    <time pubdate datetime="2014-01-25T00:00:00+00:00">
+      25 Jan 2014
     </time>
-    <h1>WWDC 2011 Videos</h1>
+    <h1>Tracking form submit events with Google Universal Analytics. (Updated)</h1>
   </header>
   <div>
-    <p>If like me you were unable to attend this year Apple&#8217;s <span class="caps">WWDC</span>, then there is hope for you.<br />
-Less than two weeks after <span class="caps">WWDC</span>, Apple has uploaded the videos from the sessions, and they are now available on iTunes for registered developers.</p>
-<p><a href="https://developer.apple.com/videos/wwdc/2011/">https://developer.apple.com/videos/wwdc/2011/</a></p>
-<p>Topics include the new <span class="caps">IOS</span> 5 and upcoming iCloud and OS X Lion.</p>
+    <p><a href="http://questionform.com">Questionform.com</a> payment pages are hosted in Paypal and Fastspring, and I&#8217;ve been using Google Analytics events to track outbound links to both payment providers. The purpose was to get an idea of the drop-out rates for each provider.</p>
+<p>After a few weeks, I noticed the data coming in didn&#8217;t seem correct, Google Analytics was missing a huge percentage of submit actions. It turns out, my tracking code was incorrect:</p>
+<script src="https://gist.github.com/3960379.js"> </script><p>There is not enough time for analytics to send the data to the backend server, the browser will navigate away from the page before the event is registered.</p>
+<p>To fix this, you will first need to upgrade to <a href="https://developers.google.com/analytics/devguides/collection/upgrade/">Universal Analytics</a>, the new and improved version of Google analytics.</p>
+<p>One of the new features of Universal Analytics is the ability to have a callback method executed after you’ve sent some data. This is perfectly suited to when you need to track an outbound link as an event, hitCallback is your friend:</p>
+<script src="https://gist.github.com/8615960.js"> </script><hr />
+<p>Follow me <a href="http://twitter.com/andregoncalves">@andregoncalves</a> / <a href="http://andregoncalves.com/+">google+</a><br />
+<a href="http://questionform.com">questionform.com</a>, beautiful and powerful web forms and surveys.</p>
   </div>
   <footer style="display: none">
   </footer>

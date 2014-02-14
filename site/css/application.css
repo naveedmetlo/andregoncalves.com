@@ -164,3 +164,8 @@ div.social {
 div.social:hover {
   opacity: 1;
 }
+iframe.project {
+  width: 98%;
+  border: 0;
+  overflow-x: auto;
+}

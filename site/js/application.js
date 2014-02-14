@@ -4,18 +4,12 @@ $(document).ready(function() {
   ga('send', 'pageview');
 
   $("#sidebar a").bind('click', function() {
-    var location = $(this).attr('name');
+    var location_name = $(this).attr('name');
+    var location = $(this).attr('href');
 
-    ga('send', {
-      'hitType': 'event',
-      'eventCategory': 'sidebar',   // Required.
-      'eventAction': 'link',      // Required.
-      'eventLabel': location,
-      'hitCallback': function() {
-        document.location = location;
-      }
-    });
-
+    ga('send', { 'hitType': 'event', 'eventCategory': 'sidebar', 'eventAction': 'link', 'eventLabel': location_name, 'hitCallback': function() {
+      document.location = location;
+    }});
     return false;
   });
 
