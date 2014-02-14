@@ -11,7 +11,7 @@ default_run_options[:pty] = true
 #############################################################
 #	Source Control Settings
 #############################################################
-set :repository,        '_site'
+set :repository,        'site/_site'
 set :scm,               :none
 set :deploy_via,        :copy
 set :copy_compression,  :gzip
