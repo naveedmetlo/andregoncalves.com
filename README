@@ -1,0 +1,2 @@
+Run inside site folder:
+jekyll --server 3000
